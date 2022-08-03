@@ -9,14 +9,18 @@ Make sure kubectl and helm are installed.
 
 1. Installing spark operator.
 
+</br>
+
+- Create namespaces for operator isc-minerva-swb-dscw-spark-operator and jobs isc-minerva-swb-dscw-spark-jobs. Also, label  both the ns as istio-injection=enabled
+
 ```bash
-helm repo add spark-operator https://googlecloudplatform.github.io/spark-on-k8s-operator
+kubectl create ns isc-minerva-swb-dscw-spark-operator isc-minerva-swb-dscw-spark-jobs
 ```
 
 </br>
 
 ```bash
-helm install spark-operator spark-operator/spark-operator --namespace spark-operator --create-namespace
+helm install spark-operator spark-operator --namespace isc-minerva-swb-dscw-spark-operator
 ```
 
 </br>
