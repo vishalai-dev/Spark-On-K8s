@@ -5,7 +5,8 @@
 ### Pre-Requisites
 </br>
 
-Make sure kubectl and helm are installed.
+- Make sure kubectl and helm are installed.
+- Assign Node Group in Node Selector section in values.yaml
 
 1. Installing spark operator.
 
@@ -24,4 +25,6 @@ kubectl label ns isc-minerva-swb-dscw-spark-jobs istio-injection=enabled
 
 ```bash
 helm install swb-dscw-oss-spark-operator spark-operator/ --namespace isc-minerva-swb-dscw-spark-operator
+
+kubectl create clusterrolebinding swb-dscw-spark-role --clusterrole=edit --serviceaccount=isc-minerva-swb-dscw-spark-jobs:default --namespace=isc-minerva-swb-dscw-spark-jobs
 ```
